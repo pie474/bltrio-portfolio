@@ -1,40 +1,30 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 import { repository } from '@/data/repository';
-import { ProjectType, CreatorName, InstrumentationCategory } from '@/types/music';
 import Card from '@/components/card';
 import SearchInput from '@/components/search-input';
-import SortPopover, { SortOption } from '@/components/sort-popover';
+import SortPopover from '@/components/sort-popover';
 import FilterPopover from '@/components/filter-popover';
+import { useCatalogParams } from '@/hooks/use-catalog-params';
 
-export default function CatalogPage() {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [sortBy, setSortBy] = useState<SortOption>('newest');
+function CatalogContent() {
+    const {
+        searchQuery,
+        sortBy,
+        selectedTypes,
+        selectedCreators,
+        selectedInstruments,
+        setSearchQuery,
+        setSortBy,
+        toggleType,
+        toggleCreator,
+        toggleInstrument,
+        resetFilters,
+        resetAll,
+    } = useCatalogParams();
 
-    const [selectedTypes, setSelectedTypes] = useState<Set<ProjectType>>(new Set());
-    const [selectedCreators, setSelectedCreators] = useState<Set<CreatorName>>(new Set());
-    const [selectedInstruments, setSelectedInstruments] = useState<Set<InstrumentationCategory>>(new Set());
-
-    // Toggle helper for sets
-    const toggleFilter = <T,>(set: Set<T>, value: T, setter: (newSet: Set<T>) => void) => {
-        const updated = new Set(set);
-        updated.has(value) ? updated.delete(value) : updated.add(value);
-        setter(updated);
-    };
-
-    const handleResetFilters = () => {
-        setSelectedTypes(new Set());
-        setSelectedCreators(new Set());
-        setSelectedInstruments(new Set());
-    };
-
-    const handleResetAll = () => {
-        setSearchQuery('');
-        handleResetFilters();
-    };
-
-    // Filter and Sort Pipeline
+    // Filtering & Sorting Pipeline
     const filteredAndSortedPieces = useMemo(() => {
         return repository
             .filter((track) => {
@@ -52,7 +42,7 @@ export default function CatalogPage() {
             })
             .sort((a, b) => {
                 if (sortBy === 'newest') return new Date(b.date).getTime() - new Date(a.date).getTime();
-                if (sortBy === 'oldest') return new Date(a.date).getTime() - new Date(b.date).getTime();
+                if (sortBy === 'oldest') return new Date(a.date).getTime() - new Date(a.date).getTime();
                 if (sortBy === 'title-asc') return a.title.localeCompare(b.title);
                 if (sortBy === 'title-desc') return b.title.localeCompare(a.title);
                 return 0;
@@ -74,7 +64,7 @@ export default function CatalogPage() {
                 </div>
             </div>
 
-            {/* Single-Line Action Toolbar */}
+            {/* Toolbar */}
             <div className="flex items-center gap-2">
                 <SearchInput value={searchQuery} onChange={setSearchQuery} placeholder="Search catalog..." />
 
@@ -82,22 +72,22 @@ export default function CatalogPage() {
                     selectedTypes={selectedTypes}
                     selectedCreators={selectedCreators}
                     selectedInstruments={selectedInstruments}
-                    onTypeToggle={(type) => toggleFilter(selectedTypes, type, setSelectedTypes)}
-                    onCreatorToggle={(creator) => toggleFilter(selectedCreators, creator, setSelectedCreators)}
-                    onInstrumentToggle={(inst) => toggleFilter(selectedInstruments, inst, setSelectedInstruments)}
-                    onReset={handleResetFilters}
+                    onTypeToggle={toggleType}
+                    onCreatorToggle={toggleCreator}
+                    onInstrumentToggle={toggleInstrument}
+                    onReset={resetFilters}
                 />
 
                 <SortPopover value={sortBy} onChange={setSortBy} />
             </div>
 
-            {/* Grid Results */}
+            {/* Results Grid */}
             <section>
                 {filteredAndSortedPieces.length === 0 ? (
                     <div className="text-center py-16 border border-dashed border-border rounded-2xl text-muted-foreground text-sm space-y-3">
                         <p>No pieces match your selected criteria.</p>
                         <button
-                            onClick={handleResetAll}
+                            onClick={resetAll}
                             className="px-4 py-2 text-xs font-medium bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition"
                         >
                             Clear search and filters
@@ -112,5 +102,13 @@ export default function CatalogPage() {
                 )}
             </section>
         </main>
+    );
+}
+
+export default function CatalogPage() {
+    return (
+        <Suspense fallback={<div className="p-12 text-center text-sm text-muted-foreground">Loading catalog...</div>}>
+            <CatalogContent />
+        </Suspense>
     );
 }

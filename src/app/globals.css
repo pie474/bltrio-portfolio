@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Organic Cream Light Mode */
+  --background: #f9f6f0;
+  /* Warm paper / soft cream */
+  --foreground: #221e1a;
+  /* Deep warm espresso text */
+  --surface: #eee8dc;
+  /* Warm parchment surface for cards & nav */
+  --surface-hover: #e5ded0;
+  /* Slightly darker warm tone for hover states */
+  --border: #dfd7c6;
+  /* Organic earthy border */
+  --muted-foreground: #6e655c;
+  /* Soft warm brown/grey text */
+
+  /* Accents */
+  --primary: #8c3f25;
+  /* Warm terracotta / rust */
+  --primary-hover: #73311a;
+  /* Deeper rust hover */
+  --primary-foreground: #fcfaf6;
+  /* Soft off-white text on primary */
+
+  --accent: #3d5945;
+  /* Warm sage green */
+  --accent-muted: #e2ece3;
+  /* Very soft green tint */
+  --accent-foreground: #213a29;
+  /* Deep green text */
+
+  --tag-bg: #e4ddcf;
+  /* Neutral tag background */
+  --tag-border: #d2c8b6;
+  /* Neutral tag border */
+  --tag-text: #453e36;
+  /* Dark tag text */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Earthy Dark Mode */
+    --background: #171513;
+    --foreground: #f0ece1;
+    --surface: #22201c;
+    --surface-hover: #2e2b26;
+    --border: #38342e;
+    --muted-foreground: #a19a90;
+
+    --primary: #d97452;
+    --primary-hover: #e38363;
+    --primary-foreground: #171513;
+
+    --accent: #7a9c82;
+    --accent-muted: #223326;
+    --accent-foreground: #d2e4d6;
+
+    --tag-bg: #282521;
+    --tag-border: #3b3730;
+    --tag-text: #d4cbbe;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-border: var(--border);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-tag-bg: var(--tag-bg);
+  --color-tag-border: var(--tag-border);
+  --color-tag-text: var(--tag-text);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

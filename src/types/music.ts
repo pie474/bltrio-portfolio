@@ -1,5 +1,5 @@
 export const ALL_CREATORS = ['Curtis', 'Vichet', 'Chinmay'] as const;
-export const ALL_INSTRUMENTS = ['SATB Sax Quartet', 'SAATB Sax Quintet', 'Symphony Orchestra', 'Choir', 'Chinese Orchestra', 'Piano', 'Trumpet', 'Melodica', 'Wind Ensemble', 'Soprano Sax', 'Alto Sax', 'Tenor Sax', 'Bari Sax'] as const;
+export const ALL_INSTRUMENTS = ['SATB Sax Quartet', 'SAATB Sax Quintet', 'Symphony Orchestra', 'Choir', 'Solo Voice', 'Chinese Orchestra', 'Piano', 'Trumpet', 'Melodica', 'Wind Ensemble', 'Solo Soprano Sax', 'Solo Alto Sax', 'Solo Tenor Sax', 'Solo Bari Sax'] as const;
 export const ALL_PROJECT_TYPES = ['Arrangement', 'Arrangement/Transcription', 'Composition'] as const;
 
 export type CreatorName = typeof ALL_CREATORS[number];

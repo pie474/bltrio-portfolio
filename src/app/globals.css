@@ -36,6 +36,9 @@
   /* Neutral tag border */
   --tag-text: #453e36;
   /* Dark tag text */
+
+  --selection-bg: #c8d4b3;
+  --selection-text: #221e1a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -59,6 +62,9 @@
     --tag-bg: #282521;
     --tag-border: #3b3730;
     --tag-text: #d4cbbe;
+
+    --selection-bg: #a4c0aa;
+    --selection-text: #171513;
   }
 }
 
@@ -89,4 +95,9 @@
 body {
   background-color: var(--background);
   color: var(--foreground);
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-text);
 }

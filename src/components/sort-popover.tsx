@@ -2,6 +2,12 @@
 
 import { useState, useRef } from 'react';
 import { useClickOutside } from '@/hooks/use-click-outside';
+import {
+    FaArrowDownAZ,
+    FaArrowUpAZ,
+    FaArrowDown91,
+    FaArrowUp91,
+} from 'react-icons/fa6';
 
 export type SortOption = 'newest' | 'oldest' | 'title-asc' | 'title-desc';
 
@@ -10,6 +16,16 @@ const SORT_LABELS: Record<SortOption, string> = {
     'oldest': 'Date: Oldest first',
     'title-asc': 'Title: A to Z',
     'title-desc': 'Title: Z to A',
+};
+
+const SORT_ICONS: Record<
+    SortOption,
+    React.ComponentType<{ className?: string }>
+> = {
+    newest: FaArrowDown91,
+    oldest: FaArrowUp91,
+    'title-asc': FaArrowDownAZ,
+    'title-desc': FaArrowUpAZ,
 };
 
 interface SortPopoverProps {
@@ -21,17 +37,17 @@ export default function SortPopover({ value, onChange }: SortPopoverProps) {
     const [isOpen, setIsOpen] = useState(false);
     const popoverRef = useRef<HTMLDivElement>(null);
 
+    const Icon = SORT_ICONS[value];
+
     useClickOutside(popoverRef, () => setIsOpen(false));
 
     return (
         <div className="relative" ref={popoverRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex items-center gap-2 px-3.5 py-2 bg-background border border-border rounded-xl text-sm font-medium text-foreground hover:bg-muted/50 transition"
+                className="flex items-center gap-2 px-3.5 py-2 bg-background border border-border rounded-xl text-sm font-medium text-foreground hover:bg-accent-muted/50 transition cursor-pointer"
             >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
-                </svg>
+                <Icon className="w-4 h-4" />
                 <span className="hidden sm:inline">Sort</span>
             </button>
 
@@ -44,9 +60,9 @@ export default function SortPopover({ value, onChange }: SortPopoverProps) {
                                 onChange(option);
                                 setIsOpen(false);
                             }}
-                            className={`w-full text-left px-3 py-1.5 text-sm rounded-lg transition ${value === option
-                                    ? 'bg-primary/10 text-primary font-medium'
-                                    : 'text-foreground hover:bg-muted/50'
+                            className={`w-full text-left px-3 py-1.5 text-sm rounded-lg transition cursor-pointer ${value === option
+                                ? 'bg-primary/10 text-primary font-medium'
+                                : 'text-foreground hover:bg-accent-muted/50'
                                 }`}
                         >
                             {SORT_LABELS[option]}

@@ -42,7 +42,7 @@ function CatalogContent() {
             })
             .sort((a, b) => {
                 if (sortBy === 'newest') return new Date(b.date).getTime() - new Date(a.date).getTime();
-                if (sortBy === 'oldest') return new Date(a.date).getTime() - new Date(a.date).getTime();
+                if (sortBy === 'oldest') return new Date(a.date).getTime() - new Date(b.date).getTime();
                 if (sortBy === 'title-asc') return a.title.localeCompare(b.title);
                 if (sortBy === 'title-desc') return b.title.localeCompare(a.title);
                 return 0;

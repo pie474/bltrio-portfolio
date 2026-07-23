@@ -1,19 +1,19 @@
 export default function AboutPage() {
     const team = [
         {
-            name: 'Alex',
-            role: 'Arranger / Orchestrator',
-            bio: 'Musician and theorist. Alex specializes in dense woodwind arrangements and expanding chamber works into massive orchestral textures.'
+            name: 'Chinmay Murthy',
+            role: 'Contact: email here',
+            bio: 'Bro does things'
         },
         {
-            name: 'Sam',
-            role: 'Composer / Producer',
-            bio: 'Bringing a background in tech and software, Sam weaves algorithmic patterns and minimalist structures into modern acoustic compositions.'
+            name: 'Curtis Chung',
+            role: 'Contact: email here',
+            bio: 'Indeed'
         },
         {
-            name: 'Jordan',
-            role: 'Arranger / Copyist',
-            bio: 'With deep roots in community jazz bands, Jordan ensures our brass writing is punchy, practical, and highly playable for musicians of all levels.'
+            name: 'Vichet Ros',
+            role: 'Contact: email here',
+            bio: 'Musik'
         }
     ];
 
@@ -22,7 +22,7 @@ export default function AboutPage() {
             <header className="space-y-4">
                 <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">Who are we?</h1>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                    We met through the band program at the University of Washington. Did some shenanigans and now we're here idk
+                    We met in Symphonic Band at the University of Washington in the Winter of 2023. Since then, we've worked together on numerous performance, arrangement, and composition projects. Did some shenanigans and now we're here idk
                 </p>
             </header>
 

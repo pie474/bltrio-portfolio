@@ -22,8 +22,12 @@ export default function AboutPage() {
             <header className="space-y-4">
                 <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">Who are we?</h1>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                    Back in the winter of 2023, we met in Symphonic Band at the University of Washington. Since then, we've worked
-                    together on numerous performance, arrangement, and composition projects. Did some shenanigans and now we're here idk
+                    Back in the Winter of 2023, the three of us met in Symphonic Band at the University of Washington. Since then we've
+                    come together to work on numerous musical projects. These have ranged from orchestral transcriptions of movie
+                    soundtracks to chamber arrangments of video game soundtracks to compositions of our own. We've been lucky enough to
+                    have some of our pieces be played by live chamber musicians and symphony orchestras, and wanted to have a place to
+                    showcase our passion and progress. Despite our differing backgrounds, careers, and current locations, we strive to
+                    continue to make music we and others can enjoy.
                 </p>
             </header>
 

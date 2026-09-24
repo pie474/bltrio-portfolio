@@ -22,7 +22,8 @@ export default function AboutPage() {
             <header className="space-y-4">
                 <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">Who are we?</h1>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                    We met in Symphonic Band at the University of Washington in the Winter of 2023. Since then, we've worked together on numerous performance, arrangement, and composition projects. Did some shenanigans and now we're here idk
+                    Back in the winter of 2023, we met in Symphonic Band at the University of Washington. Since then, we've worked
+                    together on numerous performance, arrangement, and composition projects. Did some shenanigans and now we're here idk
                 </p>
             </header>
 

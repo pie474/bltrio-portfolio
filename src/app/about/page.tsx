@@ -7,8 +7,8 @@ export default function AboutPage() {
         },
         {
             name: 'Curtis Chung',
-            role: 'Contact: email here',
-            bio: 'Indeed'
+            role: 'Contact: curtischung888@gmail.com',
+            bio: 'Curtis Chung is currently a PhD student in mechanical engineering at the University of Maryland focusing on heat transfer. Aside from research, he enjoys playing various instruments and working on arrangements and compositions.'
         },
         {
             name: 'Vichet Ros',

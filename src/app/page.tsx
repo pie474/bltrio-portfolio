@@ -14,7 +14,7 @@ export default function Home() {
             We make music sometimes
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-            We are a trio of friends and musicians that do a variety of musical projects together.
+            Hello! We are *name*, a trio of friends and musicians that do a variety of musical projects together.
           </p>
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <Link href="/catalog" className="bg-primary hover:bg-primary-hover text-primary-foreground font-medium px-6 py-3 rounded-lg shadow-sm transition">

@@ -93,5 +93,45 @@ export const repository: Piece[] = [
         creators: new Set(['Chinmay']),
         duration: '1:40',
         description: 'A saxophone quartet arrangement of the fast-paced boss battle theme from Undertale. Originally started as a saxophone trio arrangement Chinmay made in middle school.'
+    },
+    {
+        id: 'yona-quintet',
+        title: 'Akatsuki no Yona',
+        date: new Date(2024, 2, 18),
+        projectType: 'Arrangement',
+        instrumentation: new Set(['Chamber Ensemble']),
+        creators: new Set(['Curtis']),
+        duration: '1:30',
+        description: 'A wind quintet arrangement of the TV size opening of the anime Yona of the Dawn.'
+    },
+    {
+        id: 'yona-orchestra',
+        title: 'Akatsuki no Yona',
+        date: new Date(2024, 12, 21),
+        projectType: 'Transcription/Arrangement',
+        instrumentation: new Set(['Symphony Orchestra']),
+        creators: new Set(['Curtis']),
+        duration: '3:00',
+        description: 'A symphony orchestra transcription/arrangement of the full opening of the anime Yona of the Dawn.'
+    },
+    {
+        id: 'no-work-no-food',
+        title: 'No Work, No Food',
+        date: new Date(2025, 8, 9),
+        projectType: 'Transcription/Arrangement',
+        instrumentation: new Set(['Chamber Ensemble']),
+        creators: new Set(['Curtis']),
+        duration: '1:40',
+        description: 'A chamber ensemble transcription/arrangement of the piece from the OST of the anime Appare-Ranman.'
+    },
+    {
+        id: 'sf-waltz',
+        title: 'Waltz for Stark and Fern',
+        date: new Date(2025, 7, 8),
+        projectType: 'Transcription/Arrangement',
+        instrumentation: new Set(['Symphony Orchestra']),
+        creators: new Set(['Curtis']),
+        duration: '1:50',
+        description: 'A symphony orchestra transcription/arrangement of the piece from the OST of the anime Frieren: Beyond Journey\'s end.'
     }
 ];
